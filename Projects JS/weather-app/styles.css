@@ -28,6 +28,16 @@ h1 {
   margin-bottom: 20px;
 }
 
+footer {
+  background-color: #111;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
 #search {
   border-radius: 5px 0 0 5px;
   border: none;
