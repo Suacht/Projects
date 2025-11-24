@@ -2,7 +2,7 @@ async function fetchWeather() {
   let searchInput = document.getElementById("search").value;
   const weatherDataSection = document.getElementById("weather-data");
   weatherDataSection.style.display = "block";
-  const apiKey = "1bf9a1208e548305ee68695ead1dca4c"; 
+  const apiKey = ""; 
 
   if (searchInput == "") {
   weatherDataSection.innerHTML = `
@@ -52,12 +52,23 @@ async function fetchWeather() {
     const data = await response.json();
     weatherDataSection.style.display = "flex";
     weatherDataSection.innerHTML = `
-      <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description}" width="100" />
-      <div>
         <h2>${data.name}</h2>
-        <p><strong>Temperature:</strong> ${Math.round(data.main.temp - 273.15)}°C</p>
-        <p><strong>Description:</strong> ${data.weather[0].description}</p>
-      </div>`
+        <article>
+          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description}" width="400" />
+          <h4>${Math.round(data.main.temp - 273.15)}°</h4>
+
+          <div id="wind-humidity">
+            <div class="image-data">
+              <img src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/wind.png" alt="wind" width="40" />
+              <p><b>${Math.round(data.wind.speed * 3.6)}</b>km/h</p>
+            </div>
+
+            <div class="image-data">
+              <img src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/humidity.png" alt="humidity" width="40" />
+              <p><b>${data.main.humidity}</b>%</p>
+            </div>
+          </div>
+        </article>`
   }
 
   document.getElementById("search").value = "";

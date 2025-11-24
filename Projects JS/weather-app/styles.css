@@ -2,83 +2,105 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'urbanist', sans-serif;
 }
 
 body {
-  background-image: url(https://bit.ly/4bcK1Hc);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: white;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   height: 100vh;
 }
 
 main {
-  background-color: rgba(227, 193, 173, 0.85);
-  position: relative;
-  top: 30%;
-  border: 1px solid;
-  border-radius: 5px;
-  min-width: 540px;
-  max-width: 50%;
+  width: 100%;
   margin: auto;
   padding: 2em;
+  place-items: center;
 }
 
-h1 {
-  margin-bottom: 20px;
+header {
+  top: 0;
+}
+
+header, footer {
+  position: fixed;
+  width: 100%;
+  padding: 2%;
+  text-align: center;
 }
 
 footer {
-  background-color: #111;
-  position: fixed;
   bottom: 0;
-  width: 100%;
-  color: white;
-  padding: 10px;
-  text-align: center;
+}
+
+#weather-search {
+  position: relative;
+  top: 10%;
+  padding: 5%;
+  display: flex;
+  min-width: 540px;
+  max-width: 50%;
 }
 
 #search {
   border-radius: 5px 0 0 5px;
-  border: none;
+  width: 100%;
+  height: 42px;
+}
+
+#search, #submit {
+  border: 1px solid black;
   padding: 10px;
   font-size: 16px;
-  width: 70%;
-  height: 42px;
 }
 
 #submit {
   border-radius: 0 5px 5px 0;
-  padding: 10px;
-  font-size: 16px;
   width: 5em;
   cursor: pointer;
 }
 
-#weather-wrapper {
+#weather-data {
   display: flex;
   flex-direction: column;
-  place-items: center;
-  justify-content: space-between;
-}
-
-#weather-search {
-  display: flex;
-  width: 50%;
-}
-
-#weather-data {
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 5px;
-  padding: 1.5em;
-  margin-top: 20px;
-
-  text-align: center;
   align-items: center;
-  gap: 12px;
+  padding: 2%;
 }
 
-#weather-data > img {
-  border-radius: 50%;
-  background-color: lightskyblue;
+h2, b {
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 160px;
+}
+
+b {
+  color: grey;
+}
+
+p {
+  color: rgb(137, 137, 139);
+  font-size: 20px;
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 17%;
+  padding: 10%;
+}
+
+.image-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#wind-humidity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
