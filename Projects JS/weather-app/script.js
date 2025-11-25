@@ -1,9 +1,66 @@
+let state = 0;
+
+function formuleGrade(gradeK) {
+  let forumule = 0;
+  if (state == 0) {
+    forumule = Math.round(gradeK - 273.15);
+  } else if (state == 1) {
+    forumule = Math.round((gradeK - 273.15) * 9/5 + 32);
+  } else if (state == 2) {
+    forumule = Math.round(gradeK);
+  }
+
+  return forumule;
+};
+
+function setupTempButtons(data) {
+  const cel = document.getElementById("celcius");
+  const fah = document.getElementById("fahrenheint");
+  const kel = document.getElementById("kelvin");
+
+  const allButtons = [cel, fah, kel];
+
+  function resetColors() {
+    allButtons.forEach(btn => btn.style.color = "grey");
+  }
+
+  function updateGrade() {
+    const gradeData = document.getElementById("grade");
+    let formule = formuleGrade(data.main.temp);
+
+    gradeData.textContent = formule + "°";
+  }
+
+  cel.addEventListener("click", (e) => {
+    state = 0;
+    updateGrade();
+    resetColors();
+    e.target.style.color = "black";
+  });
+
+  fah.addEventListener("click", (e) => {
+    state = 1;
+    updateGrade(data.main.temp);
+    resetColors();
+    e.target.style.color = "black";
+  });
+
+  kel.addEventListener("click", (e) => {
+    state = 2;
+    updateGrade(data.main.temp);
+    resetColors();
+    e.target.style.color = "black";
+  });
+
+  resetColors();
+  allButtons[state].style.color = "black";
+}
+
 async function fetchWeather() {
   let searchInput = document.getElementById("search").value;
   const weatherDataSection = document.getElementById("weather-data");
   weatherDataSection.style.display = "block";
-  const apiKey = ""; 
-
+  const apiKey = "1bf9a1208e548305ee68695ead1dca4c";
   if (searchInput == "") {
   weatherDataSection.innerHTML = `
   <div>
@@ -50,12 +107,15 @@ async function fetchWeather() {
     }
 
     const data = await response.json();
+    
+    let forumule = formuleGrade(data.main.temp);
+
     weatherDataSection.style.display = "flex";
     weatherDataSection.innerHTML = `
-        <h2>${data.name}</h2>
-        <article>
-          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description}" width="400" />
-          <h4>${Math.round(data.main.temp - 273.15)}°</h4>
+        <h2>${data.weather[0].description} <b>in</b> ${data.name}</h2>
+        <article id="weather-data-article">
+          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description}" width="250" />
+          <h4 id="grade">${forumule}°</h4>
 
           <div id="wind-humidity">
             <div class="image-data">
@@ -68,7 +128,17 @@ async function fetchWeather() {
               <p><b>${data.main.humidity}</b>%</p>
             </div>
           </div>
+        </article>
+        
+        <article id="buttons">
+          <button id="celcius"> C° </button>
+          <b>|</b>
+          <button id="fahrenheint"> F° </button>
+          <b>|</b>
+          <button id="kelvin"> K° </button>
         </article>`
+
+        setupTempButtons(data);
   }
 
   document.getElementById("search").value = "";

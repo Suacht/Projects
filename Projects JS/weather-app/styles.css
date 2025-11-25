@@ -1,3 +1,4 @@
+/* all */
 * {
   margin: 0;
   padding: 0;
@@ -13,11 +14,12 @@ body {
 
 main {
   width: 100%;
-  margin: auto;
+  margin-top: 0;
   padding: 2em;
   place-items: center;
 }
 
+/* header and footer */
 header {
   top: 0;
 }
@@ -33,10 +35,30 @@ footer {
   bottom: 0;
 }
 
+/* Text */
+h2 {
+  font-size: 35px;
+}
+
+h4 {
+  font-size: 150px;
+}
+
+b {
+  color: grey;
+  font-size: 30px;
+}
+
+p {
+  color: rgb(137, 137, 139);
+  font-size: 15px;
+}
+
+/* Search */
 #weather-search {
   position: relative;
   top: 10%;
-  padding: 5%;
+  padding: 3em;
   display: flex;
   min-width: 540px;
   max-width: 50%;
@@ -45,7 +67,7 @@ footer {
 #search {
   border-radius: 5px 0 0 5px;
   width: 100%;
-  height: 42px;
+  height: 50px;
 }
 
 #search, #submit {
@@ -56,41 +78,34 @@ footer {
 
 #submit {
   border-radius: 0 5px 5px 0;
-  width: 5em;
+  width: 7em;
   cursor: pointer;
 }
 
+/* script */
 #weather-data {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2%;
+  place-items: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  gap: 50px;
 }
 
-h2, b {
-  font-size: 40px;
-}
-
-h4 {
-  font-size: 160px;
-}
-
-b {
-  color: grey;
-}
-
-p {
-  color: rgb(137, 137, 139);
-  font-size: 20px;
-}
-
-article {
+#weather-data-article {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 17%;
-  padding: 10%;
+  gap: 15%;
+  padding: 3%;
+}
+
+#wind-humidity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .image-data {
@@ -99,8 +114,26 @@ article {
   align-items: center;
 }
 
-#wind-humidity {
+/* buttons */
+#buttons {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  background: none;
+  position: relative;
+  font-size: 100%;
+  letter-spacing: 1px;
+  outline: none;
+  color: rgb(70, 69, 69);
+}
+
+button:hover {
+  color: grey;
 }
