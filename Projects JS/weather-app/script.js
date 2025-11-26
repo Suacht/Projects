@@ -1,57 +1,34 @@
+const cel = document.getElementById("celcius");
+const fah = document.getElementById("fahrenheint");
+const kel = document.getElementById("kelvin");
+
 let state = 0;
+let tempGlobal;
 
-function formuleGrade(gradeK) {
-  let forumule = 0;
-  if (state == 0) {
-    forumule = Math.round(gradeK - 273.15);
-  } else if (state == 1) {
-    forumule = Math.round((gradeK - 273.15) * 9/5 + 32);
-  } else if (state == 2) {
-    forumule = Math.round(gradeK);
-  }
+function formuleGrade() {
+  if (!tempGlobal) return;
 
-  return forumule;
+  if (state == 0) return Math.round(tempGlobal - 273.15);
+  if (state == 1) return Math.round((tempGlobal- 273.15) * 9/5 + 32);
+  if (state == 2) return Math.round(tempGlobal);
 };
 
-function setupTempButtons(data) {
-  const cel = document.getElementById("celcius");
-  const fah = document.getElementById("fahrenheint");
-  const kel = document.getElementById("kelvin");
-
+function tempButtonColors(stateTemp) {
   const allButtons = [cel, fah, kel];
+  state = stateTemp;
 
   function resetColors() {
     allButtons.forEach(btn => btn.style.color = "grey");
-  }
+  }  
 
   function updateGrade() {
     const gradeData = document.getElementById("grade");
-    let formule = formuleGrade(data.main.temp);
+    if (gradeData == null) return;
 
-    gradeData.textContent = formule + "°";
+    gradeData.textContent = formuleGrade() + "°";
   }
 
-  cel.addEventListener("click", (e) => {
-    state = 0;
-    updateGrade();
-    resetColors();
-    e.target.style.color = "black";
-  });
-
-  fah.addEventListener("click", (e) => {
-    state = 1;
-    updateGrade(data.main.temp);
-    resetColors();
-    e.target.style.color = "black";
-  });
-
-  kel.addEventListener("click", (e) => {
-    state = 2;
-    updateGrade(data.main.temp);
-    resetColors();
-    e.target.style.color = "black";
-  });
-
+  updateGrade();
   resetColors();
   allButtons[state].style.color = "black";
 }
@@ -59,21 +36,21 @@ function setupTempButtons(data) {
 async function fetchWeather() {
   let searchInput = document.getElementById("search").value;
   const weatherDataSection = document.getElementById("weather-data");
-  weatherDataSection.style.display = "block";
-  const apiKey = "";
+  const countryCodeSelection = document.getElementById("country").value;
+  const apiKey = "1bf9a1208e548305ee68695ead1dca4c";
+
   if (searchInput == "") {
-  weatherDataSection.innerHTML = `
-  <div>
-    <h2>Empty Input!</h2>
-    <p>Please try again with a valid <u>city name</u>.</p>
-  </div>
-  `;
-  return;
+    weatherDataSection.innerHTML = `
+      <div class="invalid-input">
+        <h2>Empty Input!</h2>
+        <p>Please try again with a valid <u>city name</u>.</p>
+      </div>
+    `;
+    return;
   }
 
   async function getLonAndLat() {
-    const countryCode = 1;
-    const geocodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput.replace(" ", "%20")},${countryCode}&limit=1&appid=${apiKey}`;
+    const geocodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput.replace(" ", "%20")},${countryCodeSelection}&limit=1&appid=${apiKey}`;
     
     const response = await fetch(geocodeURL);
     if (!response.ok) {
@@ -86,10 +63,10 @@ async function fetchWeather() {
     if (data.length == 0) {
       console.log("Something went wrong here.");
       weatherDataSection.innerHTML = `
-      <div>
-        <h2>Invalid Input: "${searchInput}"</h2>
-        <p>Please try again with a valid <u>city name</u>.</p>
-      </div>
+        <div class="invalid-input">
+          <h2>Invalid Input: "${searchInput}"</h2>
+          <p>Please try again with a valid <u>city name</u>.</p>
+        </div>
       `;
       return;
     } else {
@@ -108,41 +85,30 @@ async function fetchWeather() {
 
     const data = await response.json();
     
-    let forumule = formuleGrade(data.main.temp);
-
-    weatherDataSection.style.display = "flex";
+    tempGlobal = data.main.temp;
+    let forumule = formuleGrade();
+    
     weatherDataSection.innerHTML = `
         <h2>${data.weather[0].description} <b>in</b> ${data.name}</h2>
         <article id="weather-data-article">
-          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description}" width="250" />
+          <img id="image-weather" src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="${data.weather[0].description}"/>
           <h4 id="grade">${forumule}°</h4>
 
           <div id="wind-humidity">
             <div class="image-data">
-              <img src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/wind.png" alt="wind" width="40" />
+              <img class="image-recurs" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/wind.png" alt="wind"/>
               <p><b>${Math.round(data.wind.speed * 3.6)}</b>km/h</p>
             </div>
 
             <div class="image-data">
-              <img src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/humidity.png" alt="humidity" width="40" />
+              <img class="image-recurs" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/humidity.png" alt="humidity"/>
               <p><b>${data.main.humidity}</b>%</p>
             </div>
           </div>
-        </article>
-        
-        <article id="buttons">
-          <button id="celcius"> C° </button>
-          <b>|</b>
-          <button id="fahrenheint"> F° </button>
-          <b>|</b>
-          <button id="kelvin"> K° </button>
-        </article>`
-
-        setupTempButtons(data);
+        </article>`;
   }
 
   document.getElementById("search").value = "";
   const geocodeData = await getLonAndLat();
   getWeatherData(geocodeData.lon, geocodeData.lat);
-
 }

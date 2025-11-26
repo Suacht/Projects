@@ -3,6 +3,7 @@
   <head>
     <link href="styles.css" rel="stylesheet" />
     <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
@@ -16,7 +17,27 @@
         <input id="submit" type="submit" onclick="fetchWeather()" value="Search" />
       </section>
 
-      <section id="weather-data" style="display: none;"></section>
+      <section id="weather-data">
+        <div class="invalid-input">
+          <h2>Search Your City</h2>
+          <p>Start by typing a <u>city name</u> in the search box above.</p>
+        </div>
+      </section>
+
+      <section id="config">
+        <article id="buttons">
+          <button id="celcius" onclick="tempButtonColors(0)"> C° </button>
+          <b>|</b>
+          <button id="fahrenheint" onclick="tempButtonColors(1)"> F° </button>
+          <b>|</b>
+          <button id="kelvin" onclick="tempButtonColors(2)"> K° </button>
+        </article>
+
+        <select name="country" id="country">
+          <option value="1" selected>USA</option>
+          <option value="52">MEX</option>
+        </select>
+      </section>
     </main>
 
     <script src="script.js"></script>
