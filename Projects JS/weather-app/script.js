@@ -37,7 +37,7 @@ async function fetchWeather() {
   let searchInput = document.getElementById("search").value;
   const weatherDataSection = document.getElementById("weather-data");
   const countryCodeSelection = document.getElementById("country").value;
-  const apiKey = "1bf9a1208e548305ee68695ead1dca4c";
+  const apiKey = "";
 
   if (searchInput == "") {
     weatherDataSection.innerHTML = `
@@ -111,4 +111,5 @@ async function fetchWeather() {
   document.getElementById("search").value = "";
   const geocodeData = await getLonAndLat();
   getWeatherData(geocodeData.lon, geocodeData.lat);
+
 }
