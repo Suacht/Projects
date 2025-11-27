@@ -1,93 +1,80 @@
+/* Global */
+
 html {
+  background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
   font-family: "Fira Sans", sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.8px;
+  letter-spacing: 10%;
   min-height: 100vh;
   color: #d8e9ef;
-  background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
+  font-size: 1.3rem;
 }
 
 body {
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   place-items: center;
-}
-
-header {
-  top: 0;
-}
-
-header, footer {
-  position: fixed;
-  width: 98%;
-  padding-top: 2%;
   text-align: center;
-}
-
-footer {
-  bottom: 0;
-}
-
-h1 {
-  margin: 0 auto 10px auto;
-  color: #d8e9ef;
-}
-
-p {
+  display: flex;
+  padding: 0;
   margin: 0;
 }
 
+/* header and footer*/
+header, footer {
+  position: flex;
+  width: 100%;
+}
+
+/* text */
+
+h1, p {
+  margin: 0 auto;
+}
+
+/* Circle*/
 .app-container {
-  width: 250px;
-  height: 420px;
-  margin-top: 120px; 
-  text-align: center;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  flex-direction: column;
+  margin-top: 4%;
+  display: flex;
+  height: 20rem;
+  width: auto;
 }
 
 .app-circle {
   position: relative;
   margin: 0 auto;
-  width: 200px;
-  height: 200px;
-}
-
-.circle-shape {
-  pointer-events: none;
+  height: 9.7rem;
+  width: 9.7rem;
 }
 
 .semi-circle {
-  position: absolute;
-  width: 100px;
-  height: 200px;
   box-sizing: border-box;
-  border: solid 6px;
+  border: solid 0.3rem;
+  position: absolute;
+  height: 9.8rem;
+  width: 4.8rem;
 }
 
 .left-side {
-  top: 0;
-  left: 0;
+  border-bottom-left-radius: 4.8rem;
   transform-origin: right center;
-  transform: rotate(0deg);
-  border-top-left-radius: 100px;
-  border-bottom-left-radius: 100px;
+  border-top-left-radius: 4.8rem;
   border-right: none;
-  z-index: 1;
+  left: 0;
 }
 
 .right-side {
-  top: 0;
-  left: 100px;
+  border-bottom-right-radius: 4.8rem;
+  border-top-right-radius: 4.8rem;
   transform-origin: left center;
-  transform: rotate(0deg);
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
   border-left: none;
+  left: 4.8rem;
+}
+
+.left-side, .right-side {
+  transform: rotate(0deg);
+  top: 0;
 }
 
 .circle {
@@ -100,39 +87,46 @@ p {
 
 .app-counter-box {
   font-family: "Droid Sans Mono", monospace;
-  font-size: 250%;
   position: relative;
-  top: 35%;
-  color: #d8e9ef;
+  font-size: 250%;
+  top: 20%;
 }
 
+/* button */
+
 .app-button {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  display: flex;
+  gap: 0.7rem;
 }
 
 .btn-state {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  flex-direction: row;
+  display: flex;
+  gap: 0.2rem;
 }
 
 button {
-  position: relative;
-  font-size: 100%;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   border: 2px solid #e85a71;
+  text-transform: uppercase;
+  letter-spacing: 10%;
   background: none;
-  outline: none;
   color: #d8e9ef;
+  font-size: 100%;
+  outline: none;
 }
 
 button:hover {
   color: #90c0d1;
+}
+
+@media (min-width: 768px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    font-size: 0.7rem;
+  }
 }

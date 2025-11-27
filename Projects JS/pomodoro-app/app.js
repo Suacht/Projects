@@ -1,9 +1,9 @@
-const bells = new Audio("./sounds/bell.wav");
 const startBtn = document.querySelector(".btn-start");
 const pauseBtn = document.querySelector(".btn-pause");
 const resetBtn = document.querySelector(".btn-reset");
 const pomodoroBtn = document.querySelector(".btn-pomodoro");
 const breakBtn = document.querySelector(".btn-break");
+
 const minutesDiv = document.querySelector(".minutes");
 const secondsDiv = document.querySelector(".seconds");
 
@@ -16,7 +16,6 @@ const updateSeconds = () => {
   if (totalSeconds <= 0) {
     minutesDiv.textContent = "0";
     secondsDiv.textContent = "00";
-    bells.play();
     clearInterval(myInterval);
     myInterval = null;
     isRunning = false;
