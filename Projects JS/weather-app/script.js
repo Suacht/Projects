@@ -1,7 +1,3 @@
-const cel = document.getElementById("celcius");
-const fah = document.getElementById("fahrenheint");
-const kel = document.getElementById("kelvin");
-
 let state = 0;
 let tempGlobal;
 
@@ -14,12 +10,13 @@ function formuleGrade() {
 };
 
 function tempButtonColors(stateTemp) {
-  const allButtons = [cel, fah, kel];
-  state = stateTemp;
+  const cel = document.getElementById("celcius");
+  const fah = document.getElementById("fahrenheint");
+  const kel = document.getElementById("kelvin");
 
-  function resetColors() {
-    allButtons.forEach(btn => btn.style.color = "grey");
-  }  
+  state = stateTemp;
+  const allButtons = [cel, fah, kel];
+  allButtons.forEach(btn => btn.style.color = "grey");
 
   function updateGrade() {
     const gradeData = document.getElementById("grade");
@@ -29,7 +26,6 @@ function tempButtonColors(stateTemp) {
   }
 
   updateGrade();
-  resetColors();
   allButtons[state].style.color = "black";
 }
 
@@ -111,5 +107,4 @@ async function fetchWeather() {
   document.getElementById("search").value = "";
   const geocodeData = await getLonAndLat();
   getWeatherData(geocodeData.lon, geocodeData.lat);
-
 }
