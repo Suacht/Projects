@@ -32,10 +32,12 @@ function tempButtonColors(stateTemp) {
 
 function darkmode() {
   darkmodeState ? darkmodeState = false : darkmodeState = true;
-  let imageSrc = darkmodeState ? "dark" : "light";
 
   function toggleImages() {
     const darkModeImage = document.getElementById("dark-mode");
+    let imageSrc = darkmodeState ? "light" : "dark";
+
+    darkModeImage.alt = imageSrc;
     darkModeImage.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/${imageSrc}.png`;
   }
 
@@ -44,6 +46,7 @@ function darkmode() {
     const windImage = document.getElementById("wind");
 
     if (!humidityImage || !windImage) return;
+    let imageSrc = darkmodeState ? "dark" : "light";
 
     humidityImage.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/humidity-${imageSrc}.png`;
     windImage.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/wind-${imageSrc}.png`;
@@ -134,4 +137,5 @@ async function fetchWeather() {
   document.getElementById("search").value = "";
   const geocodeData = await getLonAndLat();
   getWeatherData(geocodeData.lon, geocodeData.lat);
+
 }
