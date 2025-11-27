@@ -20,7 +20,7 @@ function tempButtonColors(stateTemp) {
 
   function updateGrade() {
     const gradeData = document.getElementById("grade");
-    if (gradeData == null) return;
+    if (!gradeData) return;
 
     gradeData.textContent = formuleGrade() + "°";
   }
@@ -108,3 +108,4 @@ async function fetchWeather() {
   const geocodeData = await getLonAndLat();
   getWeatherData(geocodeData.lon, geocodeData.lat);
 }
+
