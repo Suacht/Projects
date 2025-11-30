@@ -38,7 +38,7 @@ function darkmode() {
     let imageSrc = darkmodeState ? "light" : "dark";
 
     darkModeImage.alt = imageSrc;
-    darkModeImage.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/${imageSrc}.png`;
+    darkModeImage.src = `./src/${imageSrc}.png`;
   }
 
   function resetImages() {
@@ -48,8 +48,8 @@ function darkmode() {
     if (!humidityImage || !windImage) return;
     let imageSrc = darkmodeState ? "dark" : "light";
 
-    humidityImage.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/humidity-${imageSrc}.png`;
-    windImage.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/wind-${imageSrc}.png`;
+    humidityImage.src = `./src/humidity-${imageSrc}.png`;
+    windImage.src = `./src/wind-${imageSrc}.png`;
   }
 
   toggleImages();
@@ -62,7 +62,7 @@ async function fetchWeather() {
   let searchInput = document.getElementById("search").value;
   const weatherDataSection = document.getElementById("weather-data");
   const countryCodeSelection = document.getElementById("country").value;
-  const apiKey = "";
+  const apiKey = "1bf9a1208e548305ee68695ead1dca4c";
 
   if (searchInput == "") {
     weatherDataSection.innerHTML = `
@@ -122,12 +122,12 @@ async function fetchWeather() {
 
           <div id="wind-humidity">
             <div class="image-data">
-              <img class="image-recurs" id="wind" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/wind-${imageDarkMode}.png" alt="wind"/>
+              <img class="image-recurs" id="wind" src="./src/wind-${imageDarkMode}.png" alt="wind"/>
               <p><b>${Math.round(data.wind.speed * 3.6)}</b>km/h</p>
             </div>
 
             <div class="image-data">
-              <img class="image-recurs" id="humidity" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/humidity-${imageDarkMode}.png" alt="humidity"/>
+              <img class="image-recurs" id="humidity" src="./src/humidity-${imageDarkMode}.png" alt="humidity"/>
               <p><b>${data.main.humidity}</b>%</p>
             </div>
           </div>
@@ -137,6 +137,4 @@ async function fetchWeather() {
   document.getElementById("search").value = "";
   const geocodeData = await getLonAndLat();
   getWeatherData(geocodeData.lon, geocodeData.lat);
-
 }
-

@@ -1,38 +1,52 @@
 /* all */
+:root {
+  --white: white;
+  --grey: grey;
+  --gray: rgb(70, 69, 69);
+  --bleck: rgb(14, 14, 14);
+  --black: black;
+}
+
 * {
   font-family: 'urbanist', sans-serif;
   box-sizing: border-box;
-  align-items: center;
   text-align: center;
   padding: 0;
   margin: 0;
 }
 
+html, body {
+  min-height: 100%;
+}
+
 main {
-  place-items: center;
-  width: auto;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex: 1;
 }
 
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: white;
+  background-color: var(--white);
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
 }
 
 /* header and footer */
 header {
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   margin-top: 1%;
+  display: flex;
 }
 
 footer {
-  position: fixed;
-  color: grey;
-  bottom: 0;
-  margin-bottom: 1%;
-  margin-top: 1%;
+  text-align: center;
+  margin-top: 2rem;
+  position: static;
   width: 100%;
 }
 
@@ -47,7 +61,7 @@ h4 {
 
 b {
   font-size: 1.8rem;
-  color: grey;
+  color: var(--grey);
 }
 
 p {
@@ -57,6 +71,8 @@ p {
 
 /* Search */
 #weather-search {
+  justify-content: center;
+  align-items: center;
   min-width: 55%;
   display: flex;
   padding: 3%;
@@ -68,13 +84,13 @@ p {
 }
 
 #search, #submit {
-  border: 1px solid black;
+  border: 1px solid var(--black);
   padding: 3%;
 }
 
 #submit {
-  background-color: white;
   border-radius: 0 5px 5px 0;
+  background-color: var(--white);
   cursor: pointer;
 }
 
@@ -88,6 +104,7 @@ p {
 }
 
 #weather-data, #wind-humidity {
+  justify-content: center;
   flex-direction: column;
   display: flex;
 }
@@ -98,6 +115,7 @@ p {
 }
 
 #weather-data-article, .image-data {
+  align-items: center;
   flex-direction: row;
   display: flex;
 }
@@ -105,8 +123,7 @@ p {
 /* image */
 #image-weather {
   max-width: 4rem;
-  height: auto;
-  width: 100%;
+  height: 4rem;
 }
 
 .image-recurs {
@@ -115,13 +132,12 @@ p {
   width: 100%;
 }
 
-#dark-mode, #light-mode {
+#dark-mode {
   width: 3rem;
   height: auto;
-  display: flex;
 }
 
-#dark-mode:hover, #light-mode:hover {
+#dark-mode:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -129,12 +145,9 @@ p {
 /* buttons */
 #config {
   flex-direction: column;
-  position: fixed;
+  align-items: center;
   display: flex;
-  width: 100%;
-  bottom: 8%;
 }
-
 #buttons {
   justify-content: center;
   flex-direction: row;
@@ -143,17 +156,17 @@ p {
 }
 
 button, #country {
-  color: rgb(70, 69, 69);
+  color: var(--gray);
   background: none;
-  cursor: pointer;
   font-size: 100%;
+  cursor: pointer;
   outline: none;
   border: none;
 }
 
 button:hover, #country:hover {
-  border-bottom: 2px solid white;
-  color: grey;
+  border-bottom: 2px solid var(--white);
+  color: var(--grey);
 }
 
 #country {
@@ -164,11 +177,6 @@ button:hover, #country:hover {
 
 /* responsive */
 @media (max-width: 768px) {
-  * {
-    align-items: center;
-    text-align: center;
-  }
-
   #dark-mode, #light-mode {
     width: 2.2rem;
   }
@@ -179,16 +187,9 @@ button:hover, #country:hover {
   }
 
   #weather-data, #weather-data-article {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5%;
-  }
-
-  #config {
-    bottom: 6%;
-    position: fixed;
-    left: 0;
+    display: flex;
   }
 
   .image-recurs {
@@ -198,25 +199,25 @@ button:hover, #country:hover {
 
  /* dark mode */ 
 .dark-come {
-  background-color: rgb(14, 14, 14);
-  color: white;
+  background-color: var(--bleck);
+  color: var(--white);
 }
 
 .dark-come #search, .dark-come #submit {
-  background-color: rgb(14, 14, 14);
-  border: 1px solid white;
-  color: grey;
+  background-color: var(--bleck);
+  border: 1px solid var(--white);
+  color: var(--grey);
 }
 
 .dark-come #submit:hover {
-  background-color: black;
+  background-color: var(--black);
 }
 
 .dark-come button:hover, .dark-come #country:hover {
-  border-bottom: 2px solid rgb(14, 14, 14);
-  color: white;
+  border-bottom: 2px solid var(--bleck);
+  color: var(--white);
 }
 
 .dark-come #country {
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid var(--grey);
 }
