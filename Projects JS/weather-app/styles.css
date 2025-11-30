@@ -60,8 +60,8 @@ h4 {
 }
 
 b {
-  font-size: 1.8rem;
   color: var(--grey);
+  font-size: 1.8rem;
 }
 
 p {
@@ -89,8 +89,8 @@ p {
 }
 
 #submit {
-  border-radius: 0 5px 5px 0;
   background-color: var(--white);
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
 
@@ -110,7 +110,6 @@ p {
 }
 
 #weather-data-article {
-  padding-top: 7%;
   gap: 10%;
 }
 
@@ -121,20 +120,20 @@ p {
 }
 
 /* image */
+.image-recurs, #image-weather, #dark-mode {
+  height: auto;
+}
+
 #image-weather {
   max-width: 4rem;
-  height: 4rem;
 }
 
 .image-recurs {
   max-width: 2rem;
-  height: auto;
-  width: 100%;
 }
 
 #dark-mode {
   width: 3rem;
-  height: auto;
 }
 
 #dark-mode:hover {
@@ -148,6 +147,7 @@ p {
   align-items: center;
   display: flex;
 }
+
 #buttons {
   justify-content: center;
   flex-direction: row;
