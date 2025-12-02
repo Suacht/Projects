@@ -15,13 +15,12 @@ header {
   justify-content: center;
   flex-direction: row;
   place-items: center;
-  margin-top: 1%;
   display: flex;
-  gap: 1rem;
+  gap: 1vw;
 }
 
 footer {
-  font-size: 0.9rem;
+  font-size: 1vw;
   color: grey;
   width: 100%;
   position: absolute;
@@ -34,25 +33,25 @@ p {
 }
 
 #timer {
-  font-size: 4.2rem;
+  font-size: 5vw;
 }
 
 #state {
-  font-size: 1.5rem;
+  font-size: 2vw;
 }
 
 .controls-text {
-  font-size: 0.7rem;
+  font-size: 0.8vw;
 }
 
 .bar-text, #cycle-text {
-  font-size: 1.1rem;
+  font-size: 1.3vw;
 }
 
 /* Circle*/
 .app-container {
   flex-direction: column;
-  margin-top: 3%;
+  margin-top: 2%;
   display: flex;
 }
 
@@ -60,32 +59,32 @@ p {
   pointer-events: none;
   position: relative;
   margin: 0 auto;
-  height: 12rem;
-  width: 12rem;
+  height: 15vw;
+  width: 15vw;
 }
 
 .semi-circle {
   box-sizing: border-box;
-  border: solid 0.4rem;
+  border: solid 0.5vw;
   position: absolute;
-  height: 14rem;
-  width: 7rem;
+  height: 17vw;
+  width: 8.7vw;
 }
 
 .left-side {
-  border-bottom-left-radius: 8rem;
+  border-bottom-left-radius: 10vw;
   transform-origin: right center;
-  border-top-left-radius: 8rem;
+  border-top-left-radius: 10vw;
   border-right: none;
-  left: -1rem;
+  left: -1.2vw;
 }
 
 .right-side {
-  border-bottom-right-radius: 8rem;
-  border-top-right-radius: 8rem;
+  border-bottom-right-radius: 10vw;
+  border-top-right-radius: 10vw;
   transform-origin: left center;
   border-left: none;
-  left: 6rem;
+  left: 7vw;
 }
 
 .left-side, .right-side {
@@ -121,13 +120,13 @@ p {
   display: flex;
   top: 68%;
   left: 50%;
-  gap: 1.5rem;
+  gap: 1.5vw;
 }
 
 #controls {
   flex-direction: row;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.5vw;
 }
 
 .controls-container  {
@@ -138,9 +137,9 @@ p {
 #points-container {
   flex-direction: column;
   place-items: center;
-  margin-top: 2.5rem;
+  margin-top: 3.2vw;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.5vw;
 }
 
 /* images */
@@ -148,19 +147,19 @@ p {
   justify-content: center;
   flex-direction: row;
   display: flex;
-  height: 1rem;
-  gap: 0.5rem;
+  height: 1vw;
   width: auto;
+  gap: 0.5vw;
 }
 
 .controls-image {
   height: auto;
-  width: 4rem;
+  width: 5vw;
 }
 
 #dark-mode {
-  height: 3rem;
-  width: 3rem;
+  height: 3.5vw;
+  width: 3.5vw;
 }
 
 #dark-mode:hover, .controls-image:hover  {
@@ -171,24 +170,24 @@ p {
 /* button */
 .bar-controls {
   -webkit-appearance: none;
-  width: 13rem;
+  width: 15.5vw;
 }
 
 .bar-controls::-webkit-slider-runnable-track {
   -webkit-appearance: none;
-  border-radius: 0.4rem;
+  border-radius: 0.5vw;
   background: grey;
-  height: 0.7rem;
+  height: 0.8vw;
 }
 
 .bar-controls::-webkit-slider-thumb {
   -webkit-appearance: none;
-  margin-top: -0.25rem;
+  margin-top: -0.3vw;
   background: black;
   border-radius: 50%;
   cursor: pointer;
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 1.4vw;
+  width: 1.4vw;
 }
 
 .bar-controls::-webkit-slider-thumb:hover {
@@ -202,11 +201,11 @@ p {
   }
 
   .app-container {
-    margin-top: 2rem;
+    margin-top: 2.5vw;
   }
 
   #app-controls {
-    gap: 0.8rem;
+    gap: 0.9rem;
   }
 }
 
@@ -218,6 +217,4 @@ p {
 
 .dark-come .bar-controls::-webkit-slider-thumb {
   background: white;
-
 }
-
