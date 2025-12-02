@@ -59,7 +59,7 @@ const darkmode = () => {
   });
   
   cycleStatus();
-  imageDarkMode.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/weather-app/src/${image}.png`;
+  imageDarkMode.src = `./src/${image}.png`;
   document.body.classList.toggle("dark-come");
 }
 
@@ -134,7 +134,7 @@ function cycleStatus() {
     let image = darkMode ? "light" : "dark";
     let awaitState = i < visualCycle ? image : "grey";
 
-    img.src = `https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/pomodoro-app/src/point-${awaitState}.png`;
+    img.src = `./src/point-${awaitState}.png`;
     img.alt = i < visualCycle ? "cycle-completed" : "cycle-pending";
     pointsContent.appendChild(img);
   }
@@ -144,8 +144,10 @@ function cycleStatus() {
   let oldP = document.getElementById("cycle-text");
   if (oldP) oldP.remove();
 
-  const textContent = document.createElement("p");
-  textContent.id = "cycle-text";
-  textContent.textContent = `Cycle - ${cycle}`;
-  pointsContainer.appendChild(textContent);
+  if (isRunning || cycle > 0) {
+    const textContent = document.createElement("p");
+    textContent.id = "cycle-text";
+    textContent.textContent = `Cycle - ${cycle}`;
+    pointsContainer.appendChild(textContent);
+  }
 }

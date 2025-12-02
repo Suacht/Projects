@@ -149,10 +149,13 @@ html {
   gap: 0.5rem;
 }
 
-.points-cycles img {
+.points-cycles {
   display: flex;
   flex-direction: row;
   gap: 0.3rem;
+}
+
+.points-cycles img {
   height: 1rem;
   width: 1rem;
 }
@@ -191,11 +194,7 @@ html {
 }
 
 /* responsive */
-@media (max-width: 768px) {
-  #dark-mode {
-    width: 3rem;
-  }
-
+@media (max-width: 480px) {
   #timer {
     font-size: 4.5rem;
   }
