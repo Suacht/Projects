@@ -1,68 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EG+Garamond:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Pomodoro App</title>
+    <link href="styles.css" rel="stylesheet" />
+    <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <header>
-      <h1>Pomodoro App</h1>
-      <img id="dark-mode" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/pomodoro-app/src/dark.png" onclick="darkmode()" alt="dark">
+      <h1>Weather App</h1>
+      <img id="dark-mode" src="./src/dark.png" onclick="darkmode()" alt="dark">
     </header><hr>
 
-    <section class="app-container">
-      <article class="app-circle">
-        <div class="circle-shape">
-          <div class="semi-circle right-side circle-mask"></div>
-          <div class="semi-circle right-side circle"></div>
-          <div class="semi-circle left-side circle-mask"></div>
-          <div class="semi-circle left-side circle"></div>
+    <main>
+      <section id="weather-search">
+        <input id="search" type="text" placeholder="Search by city" />
+        <input id="submit" type="submit" onclick="fetchWeather()" value="Search" />
+      </section>
+
+      <section id="weather-data">
+        <div class="invalid-input">
+          <h2>Search Your City</h2>
+          <p>Start by typing a <u>city name</u> in the search box above.</p>
         </div>
+      </section>
+    </main>
 
-        <div class="app-counter-box">
-          <p id="timer"><span class="minutes">25</span><span style="color: grey;">:</span><span class="seconds">00</span></p>
-          <p id="state"><span>Focus</span></p>
-        </div>
-      </article>
+    <footer>
+      <section id="config">
+        <article id="buttons">
+          <button id="celcius" onclick="tempButtonColors(0)" style="color: black;"> C° </button>
+          <b>|</b>
+          <button id="fahrenheint" onclick="tempButtonColors(1)"> F° </button>
+          <b>|</b>
+          <button id="kelvin" onclick="tempButtonColors(2)"> K° </button>
+        </article>
 
-      <article id="points-container"></article>
-
-      <article id ="app-controls">
-        <figure id="controls">
-          <div class="controls-container">
-            <img class="controls-image" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/pomodoro-app/src/pause-dark.png" alt="pause" onclick="pauseTimer(true)">
-            <p class="controls-text"><span>pause</span></p>
-          </div>
-
-          <div class="controls-container">
-            <img class="controls-image" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/pomodoro-app/src/start-dark.png" alt="start" onclick="startTimer()">
-            <p class="controls-text"><span>start</span></p>
-          </div>
-
-          <div class="controls-container">
-            <img class="controls-image" src="https://raw.githubusercontent.com/Suacht/Projects/main/Projects%20JS/pomodoro-app/src/reset-dark.png" alt="reset" onclick="resetTimer(0)">
-            <p class="controls-text"><span>reset</span></p>
-          </div>
-        </figure>
-
-        <div id="minutes-controls">
-          <p class="bar-text"><span>Focus time: </span> <b id="focus-minutes">25</b><span>min</span></p>
-          <input class="bar-controls" id="focus-bar" type="range" min="5" max="99" value="25" step="1">
-          <p class="bar-text"><span>Break time: </span> <b id="break-minutes">5</b><span>min</span></p>
-          <input class="bar-controls" id="break-bar" type="range" min="1" max="20" value="5" step="1">
-        </div>
-      </article>
-    </section>
-
-    <footer><hr>© 2025 Suacht. All rights reserved.</footer>
+        <select name="country" id="country">
+          <option value="1" selected>USA</option>
+          <option value="52">MEX</option>
+        </select>
+      </section>
+      <br><hr>© 2025 Suacht. All rights reserved.
+    </footer>
+    <script src="script.js"></script>
   </body>
-
-  <script src="./app.js"></script>
 </html>
