@@ -1,0 +1,322 @@
+/* global */
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* header and footer */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+  gap: 1rem;
+}
+
+#dark-mode {
+  width: 2.5rem;
+  cursor: pointer;
+}
+
+#dark-mode:hover {
+  opacity: 0.8;
+}
+
+footer {
+  width: 100%;
+  font-size: 0.8rem;
+  color: grey;
+  position: absolute;
+  bottom: 0;
+}
+
+/* text */
+html {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 16px;
+}
+
+#timer {
+  font-size: 5.5rem;
+  font-family: "Droid Sans Mono", monospace;
+}
+
+#state {
+  font-size: 2rem;
+}
+
+.controls-text {
+  font-size: 0.8rem;
+}
+
+.bar-text {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* circle */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.app-circle {
+  width: 18rem;
+  height: 18rem;
+  position: relative;
+  margin: 0 auto;
+}
+
+.semi-circle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 8.5rem;
+  height: 17rem;
+  border: solid 0.5rem;
+}
+
+.left-side {
+  border-top-left-radius: 9rem;
+  border-bottom-left-radius: 9rem;
+  border-right: none;
+  left: 2.7%;
+}
+
+.right-side {
+  border-top-right-radius: 9rem;
+  border-bottom-right-radius: 9rem;
+  border-left: none;
+  right: 2.7%;
+}
+
+.circle, .circle-mask {
+  border-color: grey;
+}
+
+.app-counter-box {
+  font-family: "Droid Sans Mono", monospace;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#state {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* controls */
+#app-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#controls {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls-image {
+  width: 4.5rem;
+  cursor: pointer;
+}
+
+.controls-image:hover {
+  opacity: 0.8;
+}
+
+/* points */
+#points-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.points-cycles img {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+/* bars*/
+.bar-controls {
+  -webkit-appearance: none;
+  margin-top: 0.1rem;
+  width: 14rem;
+}
+
+.bar-controls::-webkit-slider-runnable-track {
+  height: 0.8rem;
+  border-radius: 0.5rem;
+  background: grey;
+}
+
+.bar-controls::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -0.3rem;
+}
+
+/* dark mode */
+.dark-come, .dark-come .bar-controls {
+  background-color: black;
+  color: white;
+}
+
+.dark-come .bar-controls::-webkit-slider-thumb {
+  background: white;
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  #dark-mode {
+    width: 3rem;
+  }
+
+  #timer {
+    font-size: 4.5rem;
+  }
+
+  #state {
+    font-size: 1.8rem;
+  }
+
+  .controls-text {
+    font-size: 1.1rem;
+  }
+
+  #cycle-text {
+    font-size: 1.25rem;
+  }
+
+  .bar-text {
+    font-size: 1.4rem;
+  }
+
+  .app-circle {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .semi-circle {
+    width: 30vw;
+    height: 57vw;
+    border-width: 1vw;
+  }
+
+  .left-side {
+    border-top-left-radius: 30vw;
+    border-bottom-left-radius: 30vw;
+  }
+
+  .right-side {
+    border-top-right-radius: 30vw;
+    border-bottom-right-radius: 30vw;
+  }
+
+  .points-cycles img {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+
+  .bar-controls {
+    width: 58vw;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 4vw;
+  }
+
+  #dark-mode {
+    width: 3.5rem;
+  }
+
+  #timer {
+    font-size: 6rem;
+  }
+
+  #state {
+    font-size: 2rem;
+  }
+
+  .controls-text {
+    font-size: 1.2rem;
+  }
+
+  #cycle-text {
+    font-size: 1.4rem;
+  }
+
+  .bar-text {
+    font-size: 1.6rem;
+  }
+
+  .app-circle {
+    width: 80vw;
+    height: 80vw;
+  }
+
+  .semi-circle {
+    width: 40vw;
+    height: 75vw;
+    border-width: 1vw;
+  }
+
+  .left-side {
+    border-top-left-radius: 40vw;
+    border-bottom-left-radius: 40vw;
+  }
+
+  .right-side {
+    border-top-right-radius: 40vw;
+    border-bottom-right-radius: 40vw;
+  }
+
+  .controls-image {
+    width: 20vw;
+  }
+
+  .points-cycles img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .bar-controls {
+    width: 65vw;
+  }
+
+  .bar-controls::-webkit-slider-runnable-track {
+    height: 1rem;
+  }
+
+  .bar-controls::-webkit-slider-thumb {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: -0.4;
+  }
+}
