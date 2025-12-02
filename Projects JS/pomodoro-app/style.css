@@ -191,7 +191,7 @@ html {
 }
 
 /* responsive */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #dark-mode {
     width: 3rem;
   }
@@ -244,83 +244,5 @@ html {
 
   .bar-controls {
     width: 58vw;
-  }
-}
-
-/*@media (max-width: 768px) {
-  html {
-    font-size: 4vw;
-  }
-
-  #dark-mode {
-    width: 3.5rem;
-  }
-
-  footer {
-    font-size: 1rem;
-  }
-
-  #timer {
-    font-size: 6rem;
-  }
-
-  #state {
-    font-size: 2rem;
-  }
-
-  .controls-text {
-    font-size: 1.2rem;
-  }
-
-  #cycle-text {
-    font-size: 1.4rem;
-  }
-
-  .bar-text {
-    font-size: 1.6rem;
-  }
-
-  .app-circle {
-    width: 80vw;
-    height: 80vw;
-  }
-
-  .semi-circle {
-    width: 40vw;
-    height: 75vw;
-    border-width: 1vw;
-  }
-
-  .left-side {
-    border-top-left-radius: 40vw;
-    border-bottom-left-radius: 40vw;
-  }
-
-  .right-side {
-    border-top-right-radius: 40vw;
-    border-bottom-right-radius: 40vw;
-  }
-
-  .controls-image {
-    width: 20vw;
-  }
-
-  .points-cycles img {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
-  .bar-controls {
-    width: 65vw;
-  }
-
-  .bar-controls::-webkit-slider-runnable-track {
-    height: 1rem;
-  }
-
-  .bar-controls::-webkit-slider-thumb {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-top: -0.4;
   }
 }
