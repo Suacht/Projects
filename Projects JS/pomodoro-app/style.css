@@ -193,7 +193,7 @@ html {
 /* responsive */
 @media (max-width: 768px) {
   html {
-    font-size: 4vw;
+    font-size: 8vw;
   }
 
   #dark-mode {
@@ -259,4 +259,5 @@ html {
     width: 1.5rem;
     margin-top: -0.4;
   }
+
 }
