@@ -219,30 +219,6 @@ p {
   }
 }
 
-/*@media (max-width: 768px) {
-  * {
-    letter-spacing: 2%;
-  }
-
-  .app-container {
-    transform: scale(1.5);
-    margin-top: 6rem;
-  }
-
-  #points-container {
-    margin-top: 3rem;
-  }
-
-  #app-controls {
-    transform: scale(1.5);
-    transform: translate(-50%, 50%);
-    top: 80%;
-    left: 50%;
-    gap: 0.8rem;
-  }
-
-}*/
-
 /* dark mode*/
 .dark-come, .dark-come .bar-controls {
   background-color: black;
@@ -251,4 +227,5 @@ p {
 
 .dark-come .bar-controls::-webkit-slider-thumb {
   background: white;
+
 }
