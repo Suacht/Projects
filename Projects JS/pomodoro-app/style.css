@@ -190,6 +190,7 @@ html {
   background: white;
 }
 
+/* responsive */
 @media (max-width: 768px) {
   html {
     font-size: 4vw;
@@ -197,6 +198,10 @@ html {
 
   #dark-mode {
     width: 3.5rem;
+  }
+
+  #timer {
+    font-size: 5rem;
   }
 
   .controls-text {
