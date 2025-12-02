@@ -191,7 +191,63 @@ html {
 }
 
 /* responsive */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  #dark-mode {
+    width: 3rem;
+  }
+
+  #timer {
+    font-size: 4.5rem;
+  }
+
+  #state {
+    font-size: 1.8rem;
+  }
+
+  .controls-text {
+    font-size: 1.1rem;
+  }
+
+  #cycle-text {
+    font-size: 1.25rem;
+  }
+
+  .bar-text {
+    font-size: 1.4rem;
+  }
+
+  .app-circle {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .semi-circle {
+    width: 30vw;
+    height: 57vw;
+    border-width: 1vw;
+  }
+
+  .left-side {
+    border-top-left-radius: 30vw;
+    border-bottom-left-radius: 30vw;
+  }
+
+  .right-side {
+    border-top-right-radius: 30vw;
+    border-bottom-right-radius: 30vw;
+  }
+
+  .points-cycles img {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+
+  .bar-controls {
+    width: 58vw;
+  }
+}
+
+/*@media (max-width: 768px) {
   html {
     font-size: 4vw;
   }
@@ -200,8 +256,16 @@ html {
     width: 3.5rem;
   }
 
+  footer {
+    font-size: 1rem;
+  }
+
   #timer {
-    font-size: 5rem;
+    font-size: 6rem;
+  }
+
+  #state {
+    font-size: 2rem;
   }
 
   .controls-text {
