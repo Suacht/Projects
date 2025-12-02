@@ -45,6 +45,21 @@ const pauseTimer = (pauseState) => {
   isRunning = false;
 };
 
+function playBuzz() {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = "square";
+    osc.frequency.value = 200;
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();   
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1);
+}
+
 const darkmode = () => {
   const icons = document.querySelectorAll(".controls-image");
   const imageDarkMode = document.getElementById("dark-mode");
@@ -81,24 +96,6 @@ const resetTimer = (cycleReset, barEvent) => {
   }
 };
 
-const updateSeconds = () => {
-  if (totalSeconds <= 0) {
-    cycle++;
-    resetTimer(2);
-    startTimer();
-  }
-  totalSeconds--;
-
-  let minutesLeft = Math.floor(totalSeconds / 60);
-  let secondsLeft = totalSeconds % 60;
-
-  let strMinutesLeft = minutesLeft < 10 ? `0${minutesLeft}` : String(minutesLeft);
-  let strSecondsLeft = secondsLeft < 10 ? `0${secondsLeft}` : String(secondsLeft);
-
-  minutesDiv.textContent = minutesLeft ? strMinutesLeft : "00";
-  secondsDiv.textContent = secondsLeft < 1 ? "00" : strSecondsLeft;
-};
-
 const startTimer = () => {
   if (isRunning) {
     alert("Session has already started.");
@@ -117,6 +114,33 @@ const startTimer = () => {
   myInterval = setInterval(updateSeconds, 1000);
   isRunning = true;
   cycleStatus();
+};
+
+const updateSeconds = () => {
+  if (totalSeconds <= 0) {
+    let count = 0;
+
+    const interval = setInterval(() => {
+        playBuzz();
+        count++;
+
+        if (count > 3) clearInterval(interval);
+    }, 500);
+
+    cycle++;
+    resetTimer(2);
+    startTimer();
+  }
+  totalSeconds--;
+
+  let minutesLeft = Math.floor(totalSeconds / 60);
+  let secondsLeft = totalSeconds % 60;
+
+  let strMinutesLeft = minutesLeft < 10 ? `0${minutesLeft}` : String(minutesLeft);
+  let strSecondsLeft = secondsLeft < 10 ? `0${secondsLeft}` : String(secondsLeft);
+
+  minutesDiv.textContent = minutesLeft ? strMinutesLeft : "00";
+  secondsDiv.textContent = secondsLeft < 1 ? "00" : strSecondsLeft;
 };
 
 function cycleStatus() {
